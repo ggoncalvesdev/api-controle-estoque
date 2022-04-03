@@ -23,7 +23,7 @@ public class Usuario {
 	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	
 	@Column(nullable = false)
 	private String nome;
@@ -54,10 +54,10 @@ public class Usuario {
 		return !loginCoincideCom(login);
 	}
 	
-	public boolean removerGrupo(TipoUsuario tipoUsuario) {
+	public boolean removerTipo(TipoUsuario tipoUsuario) {
 		return getTipoUsuario().remove(tipoUsuario);
 	}
-	public boolean adicionarGrupo(TipoUsuario tipoUsuario) {
+	public boolean adicionarTipo(TipoUsuario tipoUsuario) {
 		return getTipoUsuario().add(tipoUsuario);
 	}
 	

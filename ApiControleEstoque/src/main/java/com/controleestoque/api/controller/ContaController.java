@@ -19,6 +19,7 @@ public class ContaController {
 
 	@GetMapping
 	public List<Conta> listar(){
+		// TODO fazer mais tarde !!
 		return contaRepository.findAll();
 		
 	}

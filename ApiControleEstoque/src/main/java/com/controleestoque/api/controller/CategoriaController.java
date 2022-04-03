@@ -19,6 +19,7 @@ public class CategoriaController {
 
 	@GetMapping
 	public List<Categoria> listar(){
+		// TODO fazer mais tarde !!
 		return categoriaRepository.findAll();
 		
 	}

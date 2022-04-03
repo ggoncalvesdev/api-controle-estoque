@@ -1,17 +1,14 @@
 package com.controleestoque.api.model;
 
-import java.math.BigDecimal;
-
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
 @Getter
-public class ProdutoModel {
+@Setter
+public class UsuarioModel {
 
 	private Long id;
 	private String nome;
-	private BigDecimal preco;
-	private String descricao;
-		
+	private String login;
+	
 }

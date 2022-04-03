@@ -38,8 +38,4 @@ public class Produto {
 	@JoinColumn(nullable = false)
 	private Categoria categoria;
 	
-	
-	
-	
-
 }
