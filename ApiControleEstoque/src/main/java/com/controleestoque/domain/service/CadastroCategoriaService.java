@@ -17,7 +17,7 @@ import com.controleestoque.domain.repository.CategoriaRepository;
 public class CadastroCategoriaService {
 	
 	private static final String MSG_CADASTRO_EM_USO 
-	= "Cadastro de código %d não pode ser removido, pois está em uso";
+	= "Categoria de código %d não pode ser removido, pois está em uso";
 
 
 	@Autowired

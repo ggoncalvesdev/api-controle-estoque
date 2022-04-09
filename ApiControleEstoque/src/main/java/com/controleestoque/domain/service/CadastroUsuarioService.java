@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.controleestoque.domain.exception.NegocioException;
 import com.controleestoque.domain.exception.UsuarioNaoEncontradoException;
+import com.controleestoque.domain.model.Grupo;
 import com.controleestoque.domain.model.Usuario;
 import com.controleestoque.domain.repository.UsuarioRepository;
 
@@ -16,6 +17,9 @@ public class CadastroUsuarioService {
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	private CadastroGrupoService cadastroGrupo;
 	
 	@Transactional
 	public Usuario salvar(Usuario usuario) {
@@ -40,6 +44,22 @@ public class CadastroUsuarioService {
 		}
 		
 		usuario.setSenha(novaSenha);
+	}
+	
+	@Transactional
+	public void desassociarGrupo(Long usuarioId, Long grupoId) {
+		Usuario usuario = buscarOuFalhar(usuarioId);
+		Grupo grupo = cadastroGrupo.buscarOuFalhar(grupoId);
+		
+		usuario.removerGrupo(grupo);
+	}
+	
+	@Transactional
+	public void associarGrupo(Long usuarioId, Long grupoId) {
+		Usuario usuario = buscarOuFalhar(usuarioId);
+		Grupo grupo = cadastroGrupo.buscarOuFalhar(grupoId);
+		
+		usuario.adicionarGrupo(grupo);
 	}
 
 	public Usuario buscarOuFalhar(Long usuarioId) {

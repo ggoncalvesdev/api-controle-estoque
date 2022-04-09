@@ -16,14 +16,14 @@ public class ProdutoInput {
 	@NotBlank
 	private String nome;
 	
-	@NotBlank
-	private String descricao;
-	
 	@NotNull
 	@PositiveOrZero
 	private BigDecimal preco;
 	
+	@NotBlank
+	private String descricao;
+	
 	@NotNull
-	private Boolean ativo;
+	private Long quantidade;
 	
 }

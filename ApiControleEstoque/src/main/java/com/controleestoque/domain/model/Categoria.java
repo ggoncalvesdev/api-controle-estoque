@@ -26,5 +26,10 @@ public class Categoria {
 	
 	@OneToMany(mappedBy = "categoria")
 	private List<Produto> produtos = new ArrayList<>();
+
+	public void setProdutos(String string) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

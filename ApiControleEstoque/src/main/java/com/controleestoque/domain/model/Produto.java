@@ -32,6 +32,7 @@ public class Produto {
 	@Column(nullable = false)
 	private String descricao;
 	
+	@Column(nullable = false)
 	private Long quantidade;
 	
 	@ManyToOne

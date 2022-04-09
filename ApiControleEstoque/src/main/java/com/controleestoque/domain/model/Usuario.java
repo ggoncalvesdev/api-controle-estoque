@@ -35,10 +35,9 @@ public class Usuario {
 	private String senha;
 	
 	@ManyToMany
-	@Column(nullable = false)
-	@JoinTable(name = "usuario_tipo", joinColumns = @JoinColumn(name = "usuario_id"),
-			inverseJoinColumns = @JoinColumn(name = "tipo_usuario_id"))
-	private Set<TipoUsuario> tipoUsuario = new HashSet<>();
+	@JoinTable(name = "usuario_grupo", joinColumns = @JoinColumn(name = "usuario_id"),
+			inverseJoinColumns = @JoinColumn(name = "grupo_id"))
+	private Set<Grupo> grupos = new HashSet<>();
 	
 	public boolean senhaCoincideCom(String senha) {
 		return getSenha().equals(senha);
@@ -54,11 +53,12 @@ public class Usuario {
 		return !loginCoincideCom(login);
 	}
 	
-	public boolean removerTipo(TipoUsuario tipoUsuario) {
-		return getTipoUsuario().remove(tipoUsuario);
+	public boolean removerGrupo(Grupo grupo) {
+		return getGrupos().remove(grupo);
 	}
-	public boolean adicionarTipo(TipoUsuario tipoUsuario) {
-		return getTipoUsuario().add(tipoUsuario);
+	
+	public boolean adicionarGrupo(Grupo grupo) {
+		return getGrupos().add(grupo);
 	}
 	
 }
